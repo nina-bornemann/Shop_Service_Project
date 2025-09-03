@@ -1,0 +1,64 @@
+package com.ninabornemann;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+public class ProductRepo {
+
+    List<Product> products = new ArrayList<>();
+
+    public ProductRepo(List<Product> products) {
+        this.products = products;
+    }
+
+    public void addProduct(Product product) {
+        products.add(product);
+    }
+
+    public void removeProduct (Product product) {
+        products.remove(product);
+    }
+
+    public String getProductInfo(Product product) {
+        String info = "Name of the product: " + product.name()
+                + ", Price: " + product.price()
+                + "€, available: " + product.availability();
+        return info;
+    }
+
+    public String getAllProductInfo() {
+        String allInfo = "";
+        for (Product p : products) {
+            allInfo += getProductInfo(p);
+        }
+        return allInfo;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductRepo{" +
+                "products=" + products +
+                '}';
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        ProductRepo that = (ProductRepo) o;
+        return Objects.equals(products, that.products);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(products);
+    }
+}
