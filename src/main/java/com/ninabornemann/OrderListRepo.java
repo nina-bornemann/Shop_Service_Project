@@ -14,6 +14,17 @@ public class OrderListRepo implements OrderRepo {
     }
 
     @Override
+    public boolean contains(String orderID) {
+        for (Order o : ordersList) {
+            if (o.orderId() == orderID) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    @Override
     public void addToOrders(Order order) {
         ordersList.add(order);
     }

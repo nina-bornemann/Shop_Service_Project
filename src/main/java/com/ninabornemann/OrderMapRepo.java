@@ -13,6 +13,11 @@ public class OrderMapRepo implements OrderRepo {
     }
 
     @Override
+    public boolean contains(String orderID) {
+        return orderMapRepo.containsKey(orderID);
+    }
+
+    @Override
     public void removeFromOrders(Order order) {
         orderMapRepo.remove(order.orderId(), order);
     }

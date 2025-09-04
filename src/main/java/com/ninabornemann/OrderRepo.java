@@ -6,4 +6,5 @@ public interface OrderRepo {
     public void removeFromOrders(Order order);
     public String getOrderInfo(Order order);
     public String getAllOrderInfo();
+    public boolean contains(String orderID);
 }
