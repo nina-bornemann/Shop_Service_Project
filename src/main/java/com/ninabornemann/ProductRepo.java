@@ -1,6 +1,7 @@
 package com.ninabornemann;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
@@ -60,5 +61,12 @@ public class ProductRepo {
     @Override
     public int hashCode() {
         return Objects.hashCode(products);
+    }
+
+    public boolean hasProduct(Product product) {
+        if (products.contains(product)) {
+            return true;
+        }
+        return false;
     }
 }

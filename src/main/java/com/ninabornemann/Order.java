@@ -1,6 +1,5 @@
 package com.ninabornemann;
 
-public record Order(Product product, int amountToOrder) {
-
+public record Order(String orderId, Product product, int amountToOrder) {
 
 }
