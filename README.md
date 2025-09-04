@@ -29,4 +29,4 @@ To build the ShopService please use the following maven command.
 
 >mvn package
 >
->java target/ShopSERVICE-1.0-SNAPSHOT.jar
+>java target/Shop_Service_Project-1.0-SNAPSHOT.jar
