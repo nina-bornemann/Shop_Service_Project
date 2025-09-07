@@ -41,7 +41,7 @@ public class OrderListRepo implements OrderRepo {
 
     @Override
     public String getOrderInfo(Order order) {
-        String info = "OrderId=" + order.orderId() + ", " + order.product() + ", amount ordered= " + order.amountToOrder();
+        String info = "OrderId=" + order.orderId() + ", " + order.products();
         return info;
     }
 

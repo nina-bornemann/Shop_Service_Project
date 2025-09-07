@@ -17,7 +17,7 @@ public class ProductRepo {
         products.add(product);
     }
 
-    public void removeProduct (Product product) {
+    public void removeProduct(Product product) {
         products.remove(product);
     }
 
@@ -63,9 +63,11 @@ public class ProductRepo {
         return Objects.hashCode(products);
     }
 
-    public boolean hasProduct(Product product) {
-        if (products.contains(product)) {
-            return true;
+    public boolean hasProduct(String productId, int amountToOrder) {
+        for (Product p : products) {
+            if (p.id() == productId) {
+                return p.availability() >= amountToOrder;
+            }
         }
         return false;
     }

@@ -3,10 +3,12 @@ package com.ninabornemann;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ShopService {
 
-    ShopService() {}
+    ShopService() {
+    }
 
     ShopService(OrderRepo o) {
         ordersList = o;
@@ -16,13 +18,19 @@ public class ShopService {
     OrderRepo ordersList = new OrderMapRepo();
 
 
-
     public void placeOrder(Order order) {
-        if (repo.hasProduct(order.product())) {
+        boolean productsAvailable = true;
+        for (Map.Entry<Product, Integer> entry : order.products().entrySet()) {
+            Product p = entry.getKey();
+            Integer amountToOrder = entry.getValue();
+            if (!repo.hasProduct(p.id(), amountToOrder)) {
+                productsAvailable = false;
+                System.out.println("The product" + p.name() + "is not available. Order not successful.");
+            }
+        }
+        if (productsAvailable) {
             ordersList.addToOrders(order);
             System.out.println("The product is available. Order successful.");
-        } else {
-            System.out.println("The product is not available. Order not successful.");
         }
     }
 }

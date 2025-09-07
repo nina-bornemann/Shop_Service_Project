@@ -1,6 +1,7 @@
 package com.ninabornemann;
 
-public record Product(String name, double price, boolean availability) {
+import java.util.UUID;
 
+public record Product(String id, String name, double price, int availability) {
 
 }

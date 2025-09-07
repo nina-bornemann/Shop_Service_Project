@@ -1,5 +1,7 @@
 package com.ninabornemann;
 
-public record Order(String orderId, Product product, int amountToOrder) {
+import java.util.Map;
+
+public record Order(String orderId, Map<Product, Integer> products) {
 
 }
