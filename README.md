@@ -10,8 +10,14 @@
 The shop offers for you take a look at the current product catalog 
 and place orders, if the desired products are available. 
 
-I leverages the repository pattern and the coordination 
+It leverages the repository pattern and the coordination 
 between those using the Service pattern. 
+
+### ✨ Bonus: 
+
+- lets the user change the quantity of products for their order and calculates the total price of orders
+- utilizes assertj -Matcher and parameterized tests
+
 
 ---
 ## Usage
