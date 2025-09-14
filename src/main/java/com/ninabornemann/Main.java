@@ -39,12 +39,6 @@ public class Main {
                 newCLIorder.put(id, quantity);
             }
         }
-
-
-
-
-
-
         shop.placeOrderByCLI(newCLIorder);
 
     }

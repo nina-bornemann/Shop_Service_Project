@@ -17,8 +17,8 @@ between those using the Service pattern.
 
 - lets the user change the quantity of products for their order and calculates the total price of orders
 - utilizes assertj -Matcher and parameterized tests
-- (lets the user write input via Scanner)
-- (has helpful colors and formatting)
+- add CLI to place orders
+- has helpful colors and formatting 💅🏽
 - (EAN databank in csv format)
 - (reduce inventor when order is placed)
 - (has functions for new inventory in shop and for theft or loss due to accidents)
