@@ -1,9 +1,6 @@
 package com.ninabornemann;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class ProductRepo {
 
@@ -65,10 +62,19 @@ public class ProductRepo {
 
     public boolean hasProduct(String productId, int amountToOrder) {
         for (Product p : products) {
-            if (p.id() == productId) {
+            if (p.id().equals(productId)) {
                 return p.availability() >= amountToOrder;
             }
         }
         return false;
+    }
+
+    public Optional<Product> getProductById(String key) {
+        for (Product p : products) {
+            if (p.id().equals(key)) {
+                return Optional.of(p);
+            }
+        }
+        return Optional.empty();
     }
 }
