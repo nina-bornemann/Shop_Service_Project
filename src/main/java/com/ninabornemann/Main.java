@@ -23,12 +23,12 @@ public class Main {
         Map<String,Integer> newCLIorder = new HashMap<>();
 
         Scanner myOrder = new Scanner(System.in);
-        System.out.println("Welcome to the shop! Please enter your order here. When you are done listing your product Ids please write 'done'. " +
+        System.out.println("Welcome to the shop! Please enter your order here. When you are done listing your product Ids please write \u001B[34m'done'\u001B[0m. " +
                 "(Follow the format -> product Id : quantity");
 
         boolean continueOrder = true;
         while (continueOrder) {
-            System.out.println("Please enter the product ID/ or write 'done' to finish the order ");
+            System.out.println("Please enter the product ID/ or write \u001B[34m'done'\u001B[0m to finish the order ");
             String id = myOrder.nextLine();
             if (id.equals("done")) {
                 continueOrder = false;
