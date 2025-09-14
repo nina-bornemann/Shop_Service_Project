@@ -1,9 +1,6 @@
 package com.ninabornemann;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ShopService {
 
@@ -17,6 +14,15 @@ public class ShopService {
     ProductRepo repo = new ProductRepo(new ArrayList<>());
     OrderRepo ordersList = new OrderMapRepo();
 
+    public  void placeOrderByCLI(Map<String, Integer> productIDSToOrder) {
+        Map<Product, Integer> products = new HashMap<>();
+        for (Map.Entry<String, Integer> entry : productIDSToOrder.entrySet()) {
+            Optional<Product> product = repo.getProductById(entry.getKey());
+            products.put(product.get(), entry.getValue());
+        }
+        Order order = new Order(UUID.randomUUID().toString(), products);
+        placeOrder(order);
+    }
 
     public void placeOrder(Order order) {
         boolean productsAvailable = true;
@@ -25,12 +31,12 @@ public class ShopService {
             Integer amountToOrder = entry.getValue();
             if (!repo.hasProduct(p.id(), amountToOrder)) {
                 productsAvailable = false;
-                System.out.println("The product" + p.name() + "is not available. Order not successful.");
+                System.out.println("The product " + p.name() + " is \u001B[31mnot available\u001B[0m. Order not successful.");
             }
         }
         if (productsAvailable) {
             ordersList.addToOrders(order);
-            System.out.println("The product is available. Order successful.");
+            System.out.println("The product is \u001B[32mavailable\u001B[0m. Order successful.");
         }
     }
 }
